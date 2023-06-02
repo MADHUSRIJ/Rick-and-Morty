@@ -1,9 +1,10 @@
 import './App.css';
 import CharactersComponent from './components/CharactersComponent';
+import {QueryClient, QueryClientProvider} from 'react-query';
+
+const queryClient = new QueryClient()
 
 function App() {
-  
-
   return (
     <div className="App">
       <div className='banner'>
@@ -12,7 +13,9 @@ function App() {
           </div>
           <h1>The Rick and Morty</h1>
       </div>
-     <CharactersComponent/>
+     <QueryClientProvider client={queryClient}>
+         <CharactersComponent/>
+     </QueryClientProvider>
     </div>
   );
 }

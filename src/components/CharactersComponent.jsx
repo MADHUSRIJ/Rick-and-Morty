@@ -1,37 +1,38 @@
 import React from "react";
-import { useEffect, useState } from 'react';
+import {useQuery} from 'react-query';
 import axios from 'axios';
 import CharacterComponent from './CharacterComponent';
 
 function CharactersComponent(){
-    const baseURL = 'https://rickandmortyapi.com/api/character/';
-  const [data, setData] = useState(null); 
+  const baseURL = 'https://rickandmortyapi.com/api/character/';
 
-  async function fetchData() {
+  const fetchData = async() => {
     try {
       const response = await axios.get(baseURL);
+      console.log(response.data)
       return response.data.results; 
     } catch (error) {
       throw new Error('Error fetching data: ' + error);
     }
   }
 
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      const fetchedData = await fetchData();
-      setData(fetchedData);
-    };
+  const {data, status} = useQuery('characters',fetchData); 
 
-    fetchDataAsync();
-  }, []);
+  if(status === "loading"){
+    return <div>Loading..</div>
+  }
+  if(status === "error"){
+    return <div>Error!..</div>
+  }
+
+  
+ 
 
     return(
         <div className='content'>
-        {data === null ? ( 
-          <p>Loading...</p>
-        ) : (
-          data.map((character, index) => (
-            <CharacterComponent key={index} 
+        {
+          data.map((character) => (
+            <CharacterComponent 
             characterImage = {character.image}
             characterName = {character.name}
             characterStatusColour={character.status === "Dead" ? 'red' : 'green'}
@@ -40,8 +41,8 @@ function CharactersComponent(){
             lastSeenLocation = {character.location?.name}
             characterOrigin = {character.origin?.name}
             />
-          ))
-        )}
+        ))
+        }
       </div>
     );
 }
