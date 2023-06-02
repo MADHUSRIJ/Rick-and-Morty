@@ -1,0 +1,116 @@
+.App{
+  overflow-x: hidden;
+  caret-color: transparent;
+}
+
+.banner{
+  text-align: center; 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(47, 45, 68, 0.568);
+}
+
+.banner-image{
+  height: 300px;
+  width: 300px;
+}
+
+h1{
+  font-size: 80px;
+  color: white;
+}
+
+.banner-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+.content {
+  text-align: center; 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: rgb(39, 43, 51);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container{
+  background-color: rgba(132, 129, 129, 0.139);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0px 10px 0px;
+  color: white;
+  width: 380px;
+  height: 200px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.character-image{
+  width: 40%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.character-image img{
+  
+  border-radius: 10px 0px 0px 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.character-features{
+  height: 180px;
+  padding-left: 20px;
+  padding-top: 16px;
+ 
+}
+
+.character-features, .location, .episode{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.location .heading, .episode .heading{
+   color: rgba(255, 255, 255, 0.258);
+}
+
+.character-location, .character-episode{
+  margin-top: 0;
+}
+
+
+.character-name{
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.charcter-status{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  transform: translateY(-8px);
+}
+
+.status-color{
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 10px;
+}
+
+.status{
+  margin-right: 10px;
+}
